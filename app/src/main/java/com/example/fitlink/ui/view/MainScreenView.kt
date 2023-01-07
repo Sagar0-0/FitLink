@@ -1,10 +1,13 @@
 package com.example.fitlink.ui.view
 
 import android.annotation.SuppressLint
+import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
@@ -17,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fitlink.MainActivity
 import com.example.fitlink.R
 import com.example.fitlink.ui.view.BottomNavItem.*
+import java.lang.reflect.Modifier
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -25,7 +29,7 @@ fun MainScreenView(context: MainActivity) {
     Scaffold(
         bottomBar = { BottomNavigation(navController) }
     ) {
-        NavigationGraph(navController = navController, context = context)
+        NavigationGraph(navController = navController,context)
     }
 }
 
@@ -38,7 +42,7 @@ fun BottomNavigation(navController: NavController) {
         Profile
     )
     BottomNavigation(
-        backgroundColor = colorResource(id = R.color.black),
+        backgroundColor = Color.DarkGray,
         contentColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -58,7 +62,7 @@ fun BottomNavigation(navController: NavController) {
                     )
                 },
                 selectedContentColor = Color.White,
-                unselectedContentColor = Color.White.copy(0.6f),
+                unselectedContentColor = Color.White.copy(0.5f),
                 alwaysShowLabel = true,
                 selected = currentRoute == item.screen_route,
                 onClick = {
@@ -78,8 +82,9 @@ fun BottomNavigation(navController: NavController) {
 }
 
 @Composable
-fun NavigationGraph(navController: NavHostController, context: MainActivity) {
-    NavHost(navController, startDestination = Home.screen_route) {
+fun NavigationGraph(navController: NavHostController,context:MainActivity) {
+    NavHost(
+        navController, startDestination = Home.screen_route) {
         composable(Home.screen_route) {
             Home()
         }

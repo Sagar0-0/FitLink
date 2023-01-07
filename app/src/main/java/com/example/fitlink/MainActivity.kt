@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FitLinkTheme {
-                if (viewModel.accessToken.value == null) {
+                if (viewModel.accessToken.isBlank()) {
                     Login(this)
                 } else {
                     MainScreenView(this)

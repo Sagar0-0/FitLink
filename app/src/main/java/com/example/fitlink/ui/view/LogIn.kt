@@ -1,13 +1,19 @@
 package com.example.fitlink.ui.view
 
 import android.content.ContentValues
+import android.content.Context
 import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.auth0.android.Auth0
 import com.auth0.android.authentication.AuthenticationException
@@ -18,9 +24,10 @@ import com.example.fitlink.MainActivity
 import com.example.fitlink.MainViewModel
 
 @Composable
-fun Login(context: MainActivity) {
+fun Login(context:MainActivity) {
     val viewModel: MainViewModel = hiltViewModel()
     Column(
+        modifier= Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -31,7 +38,7 @@ fun Login(context: MainActivity) {
     }
 }
 
-private fun loginWithBrowser(account: Auth0, viewModel: MainViewModel, context: MainActivity) {
+private fun loginWithBrowser(account: Auth0, viewModel: MainViewModel, context: Context) {
     // Setup the WebAuthProvider, using the custom scheme and scope.
 
     WebAuthProvider.login(account)
@@ -49,7 +56,7 @@ private fun loginWithBrowser(account: Auth0, viewModel: MainViewModel, context: 
             override fun onSuccess(result: Credentials) {
                 // Get the access token from the credentials object.
                 // This can be used to call APIs
-                viewModel.accessToken.value = result.accessToken
+                viewModel.accessToken = result.accessToken
                 Log.d(ContentValues.TAG, "Authentication completed successfully")
             }
         })

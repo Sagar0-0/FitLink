@@ -1,4 +1,4 @@
-package com.example.fitlink
+package com.example.fitlink.di
 
 import androidx.compose.ui.res.stringResource
 import com.auth0.android.Auth0
@@ -17,9 +17,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFireStore() : FirebaseFirestore{
-        return Firebase.firestore
-    }
+    fun provideFireStore() : FirebaseFirestore = Firebase.firestore
 
     @Provides
     @Singleton
