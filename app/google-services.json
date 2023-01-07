@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "182264487608",
+    "project_id": "fitlink-46f3c",
+    "storage_bucket": "fitlink-46f3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182264487608:android:a1c813b3a1ed9c12ec5e4d",
+        "android_client_info": {
+          "package_name": "com.example.fitlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182264487608-hlv7lsg4ats5ch143qdifgfs4ngl9eaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADsA-DYr0x1KbKeUN0VVk6eQ680ocQ3FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182264487608-hlv7lsg4ats5ch143qdifgfs4ngl9eaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
