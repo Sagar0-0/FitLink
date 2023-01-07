@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FitLink</string>
+    <string name="com_auth0_domain">dev-s4chjvtt.us.auth0.com</string>
+    <string name="client_id">gs2kmhO6pIcsASFdPG1RWErxFG2hqjIz</string>
 </resources>
