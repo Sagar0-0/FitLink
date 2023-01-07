@@ -213,6 +213,35 @@ fun Home(
                             }
                         )
 
+                        TextField(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 10.dp),
+                            value = imageUrl,
+                            onValueChange = {
+                                imageUrl = it
+                            },
+                            label = {
+                                Text(text = "Cover Image Url")
+                            },
+                            colors = TextFieldDefaults.textFieldColors(
+                                backgroundColor = lightBlue,
+                                cursorColor = Color.Black,
+                                disabledLabelColor = lightBlue,
+                                focusedIndicatorColor = Color.Transparent,
+                                unfocusedIndicatorColor = Color.Transparent
+                            ),
+                            trailingIcon = {
+                                if (imageUrl.isNotEmpty()) {
+                                    IconButton(onClick = { imageUrl = "" }) {
+                                        Icon(
+                                            imageVector = Icons.Outlined.Close,
+                                            contentDescription = null
+                                        )
+                                    }
+                                }
+                            }
+                        )
 
                         Text(
                             text = "Category(e.g. Bulk, Cut, etc.)",
